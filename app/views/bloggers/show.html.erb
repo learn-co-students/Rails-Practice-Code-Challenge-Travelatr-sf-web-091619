@@ -1,0 +1,22 @@
+<h1><%= @blogger.name %></h1>
+
+<h3>Total Likes on All Posts</h3>
+<p><%= @blogger.total_likes %></p>
+
+<h3>Featured Post</h3>
+<i><h4><%= @blogger.featured_post.title %></h4></i>
+<p><%= JSON.parse(@blogger.featured_post.content).join(' ') %></p>
+
+<h3>Top 5 Most Blogged About Destinations</h3>
+<ol>
+<% @blogger.top_five.each do |destination| %>
+    <li>
+      <p>
+        Destination: <%= destination[0] %>
+      </p>
+      <p>
+        Number of Posts Written: <%= destination[1] %>
+      </p>
+    </li>
+<% end %>
+</ol>

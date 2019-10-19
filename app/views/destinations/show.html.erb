@@ -1,0 +1,15 @@
+<h1>Destination: <%= @destination.name %></h1>
+
+<h3>Most Recent Posts</h3>
+
+<% @destination.recent_posts.each do |p| %>
+  <i><h4><%= p.title %><h4></i>
+  <h4>Blogger: <%= p.blogger.name %></h4>
+  <%= JSON.parse(p.content).join(' ') %>
+<% end %>
+
+<h3>Featured Post</h3>
+<p><%= link_to @destination.featured_post.title %></h3></p>
+
+<h3>Average Age of Bloggers</h3>
+<%= @destination.average_age %>

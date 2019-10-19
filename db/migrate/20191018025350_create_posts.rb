@@ -4,10 +4,8 @@ class CreatePosts < ActiveRecord::Migration[5.1]
       t.string :title
       t.text :content
       t.integer :likes
-      t.integer :blogger_id
-      t.integer :destination_id
-
-      t.timestamps
+      t.references :blogger, foreign_key: true
+      t.references :destination, foreign_key: true
     end
   end
 end
